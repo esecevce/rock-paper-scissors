@@ -9,7 +9,13 @@
     
 
     <script>
-        
+        const options = ["rock", "paper", "scissors"];
+
+        // randomly select one of the options
+        function computerPlay() {
+            let num = Math.floor(Math.random() * options.length);
+            return options[num];
+        }
     </script>
 </body>
 </html>
