@@ -8,9 +8,14 @@ const scoreComputer = document.querySelector("#score-computer");
 
 const roundResult = document.querySelector("#round-result");
 
+const btnContainer = document.querySelector("#btn-container");
 const btnRock = document.querySelector("#btn-rock");
 const btnPaper = document.querySelector("#btn-paper");
 const btnScissors = document.querySelector("#btn-scissors");
+
+btnRock.addEventListener("click", () => { playRound("rock", computerPlay()); });
+btnPaper.addEventListener("click", () => { playRound("paper", computerPlay()); });
+btnScissors.addEventListener("click", () => { playRound("scissors", computerPlay()); });
 
 const options = ["rock", "paper", "scissors"];
 // randomly selects one of the options
@@ -25,20 +30,45 @@ function playRound(playerSelection, computerSelection) {
     computerSelection = computerSelection.toLowerCase();
 
     if (playerSelection === computerSelection) {
-        return ["Tie", "It is a tie!"];
+        roundResult.textContent = "Round ends in a TIE!";
     } else if (playerSelection === "rock" && computerSelection === "paper") {
-        return ["Computer", "Computer wins!\nPaper beats Rock."];
+        computerScore++;
+        scoreComputer.textContent = "Computer: " + computerScore;
+        roundResult.textContent = "Computer wins!";
     } else if (playerSelection === "paper" && computerSelection === "scissors") {
-        return ["Computer", "Computer wins!\nScissors beats Paper."];
+        computerScore++;
+        scoreComputer.textContent = "Computer: " + computerScore;
+        roundResult.textContent = "Computer wins!";
     } else if (playerSelection === "scissors" && computerSelection === "rock") {
-        return ["Computer", "Computer wins!\nRock beats Scissors."];
+        computerScore++;
+        scoreComputer.textContent = "Computer: " + computerScore;
+        roundResult.textContent = "Computer wins!";
     } else if (playerSelection === "paper" && computerSelection === "rock") {
-        return ["Player", "Player wins!\nPaper beats Rock."];
+        playerScore++;
+        scorePlayer.textContent = "Player: " + playerScore;
+        roundResult.textContent = "Player wins!";
     } else if (playerSelection === "rock" && computerSelection === "scissors") {
-        return ["Player", "Player wins!\nRock beats Scissors."];
+        playerScore++;
+        scorePlayer.textContent = "Player: " + playerScore;
+        roundResult.textContent = "Player wins!";
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
-        return ["Player", "Player wins!\nScissors beats Paper."];
+        playerScore++;
+        scorePlayer.textContent = "Player: " + playerScore;
+        roundResult.textContent = "Player wins!";
     } else {
-        return "An error occured.";
+        /* return "An error occured."; */
     }
+
+    if (playerScore === 5 || computerScore === 5) {
+        btnContainer.removeChild(btnRock);
+        btnContainer.removeChild(btnPaper);
+        btnContainer.removeChild(btnScissors);
+
+        if (playerScore === 5) {
+            roundResult.textContent = "Player Won!";
+        } else if (computerScore === 5) {
+            roundResult.textContent = "Computer Won!";
+        }
+    }
+    
 }
