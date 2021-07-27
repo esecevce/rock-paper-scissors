@@ -1,0 +1,73 @@
+html {
+    background: black;
+    color: antiquewhite;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+}
+
+div {
+    text-align: center;
+}
+
+#container-main {
+
+}
+
+#container-info {
+
+}
+
+#welcome {
+    color: azure;
+}
+
+#header-top {
+    color: burlywood;
+    margin: 44px 0;
+}
+
+#score-info {
+    width: 80%;
+    margin: 55px;
+    border: 1px dotted bisque;
+    padding-bottom: 26px;
+}
+
+#header-score {
+
+}
+
+#score {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#score-player {
+    padding: 0 23px;
+}
+#score-computer {
+    padding: 0 23px;
+}
+
+#round-result {
+
+}
+
+#btn-container {
+
+}
+
+.btn {
+    width: 22%;
+    padding: 17px;
+    margin: 13px;
+    background-color: black;
+    color: brown;
+    border: 1px solid grey;
+}
+.btn:hover {
+    box-shadow: 0px 2px 2px 1px rgb(119, 41, 41);
+}
