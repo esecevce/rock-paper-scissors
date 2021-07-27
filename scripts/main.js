@@ -1,5 +1,18 @@
-const options = ["rock", "paper", "scissors"];
+let playerScore = 0;
+let computerScore = 0;
 
+const container = document.querySelector("#main-container");
+
+const scorePlayer = document.querySelector("#score-player");
+const scoreComputer = document.querySelector("#score-computer");
+
+const roundResult = document.querySelector("#round-result");
+
+const btnRock = document.querySelector("#btn-rock");
+const btnPaper = document.querySelector("#btn-paper");
+const btnScissors = document.querySelector("#btn-scissors");
+
+const options = ["rock", "paper", "scissors"];
 // randomly selects one of the options
 function computerPlay() {
     let num = Math.floor(Math.random() * options.length);
@@ -29,50 +42,3 @@ function playRound(playerSelection, computerSelection) {
         return "An error occured.";
     }
 }
-
-// let the player select with a prompt window
-function playerPlay() {
-    let selection = prompt("Select one of the three; 'rock, paper, scissors': ");
-    selection.toLocaleLowerCase();
-    while (!options.includes(selection)) {
-        selection = prompt("Select one of the three; 'rock, paper, scissors': ");
-    }
-    return selection;
-}
-
-// main game function
-function game(n) {
-    let playerSelection = "";
-    let computerSelection = "";
-    let playerScore = 0;
-    let computerScore = 0;
-    
-    while (playerScore < n && computerScore < n) {
-        playerSelection = playerPlay();
-        computerSelection = computerPlay();
-        if (playRound(playerSelection, computerSelection)[0] === "Player") {
-            console.log("Player chooses: " + playerSelection + ", " + "Computer chooses: " + computerSelection);
-            console.log(playRound(playerSelection, computerSelection)[1]);
-            playerScore++;
-            console.log("-----------------------------------------");
-        } else if (playRound(playerSelection, computerSelection)[0] === "Computer") {
-            console.log("Player chooses: " + playerSelection + ", " + "Computer chooses: " + computerSelection);
-            console.log(playRound(playerSelection, computerSelection)[1]);
-            computerScore++;
-            console.log("-----------------------------------------");
-        } else {
-            console.log("Round ends in a tie.");
-            console.log("-----------------------------------------");
-        }
-    }
-
-    if (playerScore === n) {
-        console.log("Player wins it all!" + ", " + "Score: " + playerScore);
-    } else if (computerScore === n) {
-        console.log("Computer wins it all!" + ", " + "Score: " + computerScore);
-    }
-    console.log("-----------------------------------------------");
-    console.log("-----------------------------------------------");
-}
-
-game(5);
