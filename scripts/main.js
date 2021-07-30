@@ -6,6 +6,8 @@ const container = document.querySelector("#main-container");
 const scorePlayer = document.querySelector("#score-player");
 const scoreComputer = document.querySelector("#score-computer");
 
+const choseWhat = document.querySelector("#chose-what");
+choseWhat.textContent = " ";
 const roundResult = document.querySelector("#round-result");
 
 const btnContainer = document.querySelector("#btn-container");
@@ -34,26 +36,32 @@ function playRound(playerSelection, computerSelection) {
     } else if (playerSelection === "rock" && computerSelection === "paper") {
         computerScore++;
         scoreComputer.textContent = "Computer: " + computerScore;
+        choseWhat.textContent = "Player chooses: " + playerSelection + ", " + "Computer chooses: " + computerSelection;
         roundResult.textContent = "Computer wins!";
     } else if (playerSelection === "paper" && computerSelection === "scissors") {
         computerScore++;
         scoreComputer.textContent = "Computer: " + computerScore;
+        choseWhat.textContent = "Player chooses: " + playerSelection + ", " + "Computer chooses: " + computerSelection;
         roundResult.textContent = "Computer wins!";
     } else if (playerSelection === "scissors" && computerSelection === "rock") {
         computerScore++;
         scoreComputer.textContent = "Computer: " + computerScore;
+        choseWhat.textContent = "Player chooses: " + playerSelection + ", " + "Computer chooses: " + computerSelection;
         roundResult.textContent = "Computer wins!";
     } else if (playerSelection === "paper" && computerSelection === "rock") {
         playerScore++;
         scorePlayer.textContent = "Player: " + playerScore;
+        choseWhat.textContent = "Player chooses: " + playerSelection + ", " + "Computer chooses: " + computerSelection;
         roundResult.textContent = "Player wins!";
     } else if (playerSelection === "rock" && computerSelection === "scissors") {
         playerScore++;
         scorePlayer.textContent = "Player: " + playerScore;
+        choseWhat.textContent = "Player chooses: " + playerSelection + ", " + "Computer chooses: " + computerSelection;
         roundResult.textContent = "Player wins!";
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
         playerScore++;
         scorePlayer.textContent = "Player: " + playerScore;
+        choseWhat.textContent = "Player chooses: " + playerSelection + ", " + "Computer chooses: " + computerSelection;
         roundResult.textContent = "Player wins!";
     } else {
         /* return "An error occured."; */
@@ -64,10 +72,12 @@ function playRound(playerSelection, computerSelection) {
         btnContainer.removeChild(btnPaper);
         btnContainer.removeChild(btnScissors);
 
+        choseWhat.textContent = "";
+        roundResult.style.cssText = "font-size: 33px; color: red;";
         if (playerScore === 5) {
-            roundResult.textContent = "Player Won!";
+            roundResult.textContent = "YOU WON!";
         } else if (computerScore === 5) {
-            roundResult.textContent = "Computer Won!";
+            roundResult.textContent = "COMPUTER WON!";
         }
     }
     
