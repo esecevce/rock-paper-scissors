@@ -1,2 +1,2 @@
 # rock-paper-scissors
-A simple imlementation of the rock-paper-scissors game
+A simple implementation of the rock-paper-scissors game
